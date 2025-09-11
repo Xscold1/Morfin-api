@@ -18,4 +18,4 @@ module.exports = sequelize.define('payments', {
     type: DataTypes.FLOAT,
     defaultValue: 0
   },
-}, {timestamps: true})
+}, {timestamps: true, paranoid: true})

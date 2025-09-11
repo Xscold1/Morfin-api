@@ -18,4 +18,4 @@ module.exports = sequelize.define('users', {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-}, {timestamps: true})
+}, {timestamps: true, paranoid: true})

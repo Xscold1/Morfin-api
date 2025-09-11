@@ -28,4 +28,4 @@ module.exports = sequelize.define('fixed_expenses', {
     type: DataTypes.DATEONLY,
     allowNull: false
   },
-}, {timestamps: true})
+}, {timestamps: true, paranoid: true})

@@ -30,4 +30,4 @@ module.exports = sequelize.define('debts', {
     type: DataTypes.DATEONLY,
     allowNull: false
   },
-}, { timestamps: true})
+}, { timestamps: true, paranoid: true})
