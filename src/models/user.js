@@ -1,13 +1,25 @@
 const {sequelize, DataTypes} = require('../configs/database')
 
+const options = {
+    timestamps: true,
+    paranoid: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+    deletedAt: 'deleted_at',
+}
+
 module.exports = sequelize.define('users', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement:true,
     primaryKey: true
   },
-  account_id: {
-    type: DataTypes.INTEGER,
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  password: {
+    type: DataTypes.STRING,
     allowNull: false
   },
   name: {
@@ -18,4 +30,4 @@ module.exports = sequelize.define('users', {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-}, {timestamps: true, paranoid: true})
+}, options)

@@ -9,8 +9,12 @@ module.exports = {
         autoIncrement:true,
         primaryKey: true
       },
-      account_id: {
-        type: Sequelize.DataTypes.INTEGER,
+      email: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false
+      },
+      password: {
+        type: Sequelize.DataTypes.STRING,
         allowNull: false
       },
       name: {
