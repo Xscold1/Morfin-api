@@ -1,5 +1,9 @@
-const resSuccess = (res, status, data, jsonMessage = {}) => {
-  return res.status(status).json({...jsonMessage, data})
+const resSuccess = (res, status, message, data = {}) => {
+  return res.status(status).json({
+    message, 
+    status,
+    ...data
+    })
 }
 
 const resError = (res, status, message) => {

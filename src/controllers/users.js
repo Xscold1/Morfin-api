@@ -1,5 +1,6 @@
 const {resSuccess, resError} = require('../utils/response')
-
+const {success, error} = require('../constants/response')
+const code = require('../constants/code')
 const userService = require('../services/users')
 
 const register = async (req, res) => {
@@ -7,13 +8,13 @@ const register = async (req, res) => {
 
     console.log(req.body)
 
-    const result = await userService.register(req.body)
+    await userService.register(req.body)
 
-    return resSuccess(res, 200, result)
+    return resSuccess(res, success.REGISTER.statusCode, success.REGISTER.message)
 
   } catch (err) {
     if(err.isHandled) return resError(res, err.code, err.message)
-    return resError(res, 500, err.message)
+    return resError(res, code.INTERNAL_SERVER_ERROR, err.message)
   }
 }
 
