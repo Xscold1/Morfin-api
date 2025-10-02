@@ -11,7 +11,9 @@ app.use (cors());
 
 //Routes
 const users = require('./src/routes/users');
+const fixedExpense = require('./src/routes/fixedExpense');
 app.use('/users', users);
+app.use('/fix-expense', fixedExpense);
 
 const port = process.env.PORT || 3000;
 

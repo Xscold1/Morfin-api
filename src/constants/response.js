@@ -9,6 +9,12 @@ const success = {
     message: 'Registration successfully',
   },
 
+  CREATED: {
+    status: status.OK,
+    statusCode: code.CREATED,
+    message: 'Created successfully',
+  },
+
   LOGIN: {
     status: status.OK,
     statusCode:code.SUCCESS,

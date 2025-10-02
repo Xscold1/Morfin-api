@@ -13,13 +13,21 @@ module.exports = {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false
       },
-      name: {
-        type: Sequelize.DataTypes.STRING,
-        allowNull: false
-      },
       is_regular: {
         type: Sequelize.DataTypes.BOOLEAN,
         defaultValue: 0
+      },
+      billing_day: {
+        type: Sequelize.DataTypes.INTEGER,
+        allowNull: false
+      },
+      type: {
+        type: Sequelize.DataTypes.TINYINT,
+        allowNull: false
+      },
+      name: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false
       },
       amount: {
         type: Sequelize.DataTypes.FLOAT,
@@ -27,10 +35,6 @@ module.exports = {
       },
       date_from: Sequelize.DataTypes.DATEONLY,
       date_to: Sequelize.DataTypes.DATEONLY,
-      date_due: {
-        type: Sequelize.DataTypes.DATEONLY,
-        allowNull: false
-      },
       created_at: {
         type: Sequelize.DataTypes.DATE,
         allowNull: false,
