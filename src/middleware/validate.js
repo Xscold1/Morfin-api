@@ -1,6 +1,6 @@
 const code = require("../constants/code");
 
-const validate = (schema) => (req, res, next) => {
+module.exports = (schema) => (req, res, next) => {
   const { error } = schema.validate(req.body, { abortEarly: false });
   if (error) {
     return res.status(code.VALIDATION_ERROR).json({
@@ -12,9 +12,4 @@ const validate = (schema) => (req, res, next) => {
     });
   }
   next();
-};
-
-
-module.exports = {
-  validate,
 };
