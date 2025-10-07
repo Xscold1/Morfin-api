@@ -13,6 +13,10 @@ module.exports = {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false
       },
+      parent_id: {
+        type: Sequelize.DataTypes.INTEGER,
+        allowNull: true
+      },
       is_regular: {
         type: Sequelize.DataTypes.BOOLEAN,
         defaultValue: 0
@@ -49,8 +53,6 @@ module.exports = {
         type: Sequelize.DataTypes.DATE,
         allowNull: true,
       }
-
-
     })
   },
 

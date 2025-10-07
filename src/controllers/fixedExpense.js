@@ -6,6 +6,8 @@ const fixedExpense = require('../services/fixedExpense')
 const create = async (req, res) => {
   try {
 
+    if(fixedExpense.findByName(req.body)) return resError(res, error.EXIST.statusCode, error.EXIST.message)
+
     await fixedExpense.create(req.body)
 
     return resSuccess(res, success.CREATED.statusCode, success.CREATED.message)
@@ -17,7 +19,6 @@ const create = async (req, res) => {
 }
 const get = async (req, res) => {
   try {
-
     const data = await fixedExpense.get(req.params)
 
     return resSuccess(res, success.GET.statusCode, success.GET.message, data)
@@ -41,10 +42,9 @@ const update = async (req, res) => {
 }
 const show = async (req, res) => {
   try {
+    const data = await fixedExpense.find(req.params)
 
-    const data = await fixedExpense.create(req.params)
-
-    return resSuccess(res, success.GET.statusCode, success.GET.message, datas)
+    return resSuccess(res, success.GET.statusCode, success.GET.message, data)
 
   } catch (err) {
     if(err.isHandled) return resError(res, err.code, err.message)

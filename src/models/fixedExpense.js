@@ -8,8 +8,7 @@ const options = {
   deletedAt: "deleted_at",
 };
 
-module.exports = sequelize.define(
-  "fixed_expenses",
+module.exports = sequelize.define("fixed_expenses",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -19,6 +18,10 @@ module.exports = sequelize.define(
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    parent_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
     is_regular: {
       type: DataTypes.BOOLEAN,
