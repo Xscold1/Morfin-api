@@ -15,16 +15,39 @@ const find = async (params) => {
 
 const findByName = async (params) => {
   const { name } = params
-  return await fixedExpense.findOne({name: name});
+
+  const result = await fixedExpense.findOne({where: {name: name}});
+  
+  return result;
 };
 
 const remove = async (params) => {
   return await fixedExpense.destroy(params);
 };
 
-const get = async (params) => {
-  const result = await fixedExpense.findAll();
-  return result 
+const get = async (page, limit) => {
+
+  const params = {
+    limit, 
+    offset: (page - 1) * limit,
+  };
+
+  const result = await fixedExpense.findAll(params);
+
+  const type = {
+    0: 'Daily',
+    1: 'Monthly',
+  }
+
+  return result.map(item => ({
+    id: item.id,
+    name: item.name,
+    amount: item.amount,
+    billing: item.billing,
+    type: type[item.type],
+    date_from: item.date_from,
+    date_to: item.date_to
+  })) 
 };
 
 module.exports = {

@@ -6,7 +6,11 @@ const fixedExpense = require('../services/fixedExpense')
 const create = async (req, res) => {
   try {
 
-    if(fixedExpense.findByName(req.body)) return resError(res, error.EXIST.statusCode, error.EXIST.message)
+    const result = await fixedExpense.findByName(req.body)
+
+    if(result) {
+      return resError(res, error.FIXED_EXPENSE_EXIST.statusCode, error.FIXED_EXPENSE_EXIST.message)
+    } 
 
     await fixedExpense.create(req.body)
 
@@ -19,7 +23,12 @@ const create = async (req, res) => {
 }
 const get = async (req, res) => {
   try {
-    const data = await fixedExpense.get(req.params)
+    const p = 1
+    const l = 10
+
+    const data = await fixedExpense.get(p, l)
+
+    console.log(data)
 
     return resSuccess(res, success.GET.statusCode, success.GET.message, data)
 

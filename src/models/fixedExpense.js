@@ -27,7 +27,7 @@ module.exports = sequelize.define("fixed_expenses",
       type: DataTypes.BOOLEAN,
       defaultValue: 0,
     },
-    billing_day: {
+    billing: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

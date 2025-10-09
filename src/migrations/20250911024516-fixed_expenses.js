@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.DataTypes.BOOLEAN,
         defaultValue: 0
       },
-      billing_day: {
+      billing: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false
       },

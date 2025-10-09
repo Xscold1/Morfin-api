@@ -60,10 +60,10 @@ const error = {
     message: 'Not found',
   },
 
-  EXIST: {
+  FIXED_EXPENSE_EXIST: {
     status: status.FAILED,
     statusCode: code.CONFLICT,
-    message: 'Already exist',
+    message: 'Expense Already exist',
   },
 
   PASSWORD: {
